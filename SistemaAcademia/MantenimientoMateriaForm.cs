@@ -155,7 +155,7 @@ namespace SistemaAcademia
                     string sql = loader.BuildSql("borrar_materia_por_codigo");
                     db.ExecuteNonQuery(sql, parametros);
                 }
-
+ 
                 db.Commit();
                 MessageBox.Show("Materias borradas correctamente.");
                 LoadMateriasGrid();

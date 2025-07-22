@@ -40,7 +40,6 @@
             BtnDelete = new Button();
             SearchBox = new TextBox();
             BtnBack = new Button();
-            BtnSave = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridPersona).BeginInit();
             SuspendLayout();
             // 
@@ -105,7 +104,7 @@
             BtnAdd.BackgroundImageLayout = ImageLayout.Stretch;
             BtnAdd.FlatAppearance.BorderSize = 0;
             BtnAdd.FlatStyle = FlatStyle.Flat;
-            BtnAdd.Location = new Point(898, 164);
+            BtnAdd.Location = new Point(859, 164);
             BtnAdd.Name = "BtnAdd";
             BtnAdd.Size = new Size(114, 93);
             BtnAdd.TabIndex = 16;
@@ -119,7 +118,7 @@
             BtnFilter.BackgroundImageLayout = ImageLayout.Stretch;
             BtnFilter.FlatAppearance.BorderSize = 0;
             BtnFilter.FlatStyle = FlatStyle.Flat;
-            BtnFilter.Location = new Point(769, 169);
+            BtnFilter.Location = new Point(730, 169);
             BtnFilter.Name = "BtnFilter";
             BtnFilter.Size = new Size(123, 83);
             BtnFilter.TabIndex = 18;
@@ -133,7 +132,7 @@
             BtnDelete.BackgroundImageLayout = ImageLayout.Stretch;
             BtnDelete.FlatAppearance.BorderSize = 0;
             BtnDelete.FlatStyle = FlatStyle.Flat;
-            BtnDelete.Location = new Point(640, 169);
+            BtnDelete.Location = new Point(601, 169);
             BtnDelete.Name = "BtnDelete";
             BtnDelete.Size = new Size(123, 83);
             BtnDelete.TabIndex = 19;
@@ -161,19 +160,6 @@
             BtnBack.UseVisualStyleBackColor = false;
             BtnBack.Click += BtnBack_Click;
             // 
-            // BtnSave
-            // 
-            BtnSave.BackColor = Color.FromArgb(30, 30, 60);
-            BtnSave.BackgroundImage = Properties.Resources.Boton_de_Guardado;
-            BtnSave.BackgroundImageLayout = ImageLayout.Stretch;
-            BtnSave.FlatAppearance.BorderSize = 0;
-            BtnSave.FlatStyle = FlatStyle.Flat;
-            BtnSave.Location = new Point(522, 633);
-            BtnSave.Name = "BtnSave";
-            BtnSave.Size = new Size(355, 75);
-            BtnSave.TabIndex = 21;
-            BtnSave.UseVisualStyleBackColor = false;
-            // 
             // MantenimientoPersonaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -181,7 +167,6 @@
             BackColor = Color.FromArgb(30, 30, 60);
             ClientSize = new Size(1344, 729);
             Controls.Add(BtnBack);
-            Controls.Add(BtnSave);
             Controls.Add(SearchBox);
             Controls.Add(BtnDelete);
             Controls.Add(BtnFilter);
@@ -204,7 +189,6 @@
         private Button BtnDelete;
         private TextBox SearchBox;
         private Button BtnBack;
-        private Button BtnSave;
         private DataGridViewTextBoxColumn CI;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Apellido;

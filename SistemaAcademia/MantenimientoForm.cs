@@ -38,7 +38,7 @@
         private void BtnSeccion_Click(object sender, EventArgs e)
         {
             this.Hide();
-            using (MantenimientoSeccionForm seccionForm = new MantenimientoSeccionForm())
+            using (MantenimientoSeccionForm seccionForm = new MantenimientoSeccionForm(db, loader))
             {
                 seccionForm.ShowDialog();
             }

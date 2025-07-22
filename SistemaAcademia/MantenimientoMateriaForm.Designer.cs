@@ -30,16 +30,15 @@
         {
             SearchBox = new TextBox();
             gridMaterias = new DataGridView();
-            label1 = new Label();
-            BtnSave = new Button();
-            BtnBack = new Button();
-            BtnDelete = new Button();
-            BtnAdd = new Button();
             IDMateria = new DataGridViewTextBoxColumn();
             Materia = new DataGridViewTextBoxColumn();
             HC = new DataGridViewTextBoxColumn();
             Trimestre = new DataGridViewTextBoxColumn();
             Edit = new DataGridViewImageColumn();
+            label1 = new Label();
+            BtnBack = new Button();
+            BtnDelete = new Button();
+            BtnAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)gridMaterias).BeginInit();
             SuspendLayout();
             // 
@@ -61,6 +60,37 @@
             gridMaterias.Size = new Size(589, 399);
             gridMaterias.TabIndex = 23;
             // 
+            // IDMateria
+            // 
+            IDMateria.HeaderText = "ID de Materia";
+            IDMateria.Name = "IDMateria";
+            IDMateria.ReadOnly = true;
+            // 
+            // Materia
+            // 
+            Materia.HeaderText = "Materia";
+            Materia.Name = "Materia";
+            Materia.ReadOnly = true;
+            // 
+            // HC
+            // 
+            HC.HeaderText = "HC";
+            HC.Name = "HC";
+            HC.ReadOnly = true;
+            // 
+            // Trimestre
+            // 
+            Trimestre.HeaderText = "Trimestre";
+            Trimestre.Name = "Trimestre";
+            Trimestre.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            Edit.HeaderText = "Edit";
+            Edit.Image = Properties.Resources.BotonEditar;
+            Edit.Name = "Edit";
+            Edit.ReadOnly = true;
+            // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top;
@@ -72,19 +102,6 @@
             label1.TabIndex = 21;
             label1.Text = "Mantenimiento de Materia";
             label1.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // BtnSave
-            // 
-            BtnSave.BackColor = Color.FromArgb(30, 30, 60);
-            BtnSave.BackgroundImage = Properties.Resources.Boton_de_Guardado;
-            BtnSave.BackgroundImageLayout = ImageLayout.Stretch;
-            BtnSave.FlatAppearance.BorderSize = 0;
-            BtnSave.FlatStyle = FlatStyle.Flat;
-            BtnSave.Location = new Point(508, 642);
-            BtnSave.Name = "BtnSave";
-            BtnSave.Size = new Size(355, 75);
-            BtnSave.TabIndex = 29;
-            BtnSave.UseVisualStyleBackColor = false;
             // 
             // BtnBack
             // 
@@ -128,37 +145,6 @@
             BtnAdd.UseVisualStyleBackColor = false;
             BtnAdd.Click += BtnAdd_Click;
             // 
-            // IDMateria
-            // 
-            IDMateria.HeaderText = "ID de Materia";
-            IDMateria.Name = "IDMateria";
-            IDMateria.ReadOnly = true;
-            // 
-            // Materia
-            // 
-            Materia.HeaderText = "Materia";
-            Materia.Name = "Materia";
-            Materia.ReadOnly = true;
-            // 
-            // HC
-            // 
-            HC.HeaderText = "HC";
-            HC.Name = "HC";
-            HC.ReadOnly = true;
-            // 
-            // Trimestre
-            // 
-            Trimestre.HeaderText = "Trimestre";
-            Trimestre.Name = "Trimestre";
-            Trimestre.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            Edit.HeaderText = "Edit";
-            Edit.Image = Properties.Resources.BotonEditar;
-            Edit.Name = "Edit";
-            Edit.ReadOnly = true;
-            // 
             // MantenimientoMateriaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -168,7 +154,6 @@
             Controls.Add(BtnDelete);
             Controls.Add(BtnAdd);
             Controls.Add(BtnBack);
-            Controls.Add(BtnSave);
             Controls.Add(SearchBox);
             Controls.Add(gridMaterias);
             Controls.Add(label1);
@@ -184,7 +169,6 @@
         private TextBox SearchBox;
         private DataGridView gridMaterias;
         private Label label1;
-        private Button BtnSave;
         private Button BtnBack;
         private Button BtnDelete;
         private Button BtnAdd;

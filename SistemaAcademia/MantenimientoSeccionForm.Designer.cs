@@ -28,39 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
+            gridSeccion = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Seccion = new DataGridViewTextBoxColumn();
             label1 = new Label();
             BtnDelete = new Button();
-            BtnAdd = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            Checkbox = new DataGridViewCheckBoxColumn();
-            IDMateria = new DataGridViewTextBoxColumn();
-            Seccion = new DataGridViewTextBoxColumn();
-            Cupo = new DataGridViewTextBoxColumn();
-            Profesor = new DataGridViewTextBoxColumn();
-            Edit = new DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            BtnBack = new Button();
+            BtnSave = new Button();
+            txtNombreSeccion = new TextBox();
+            label3 = new Label();
+            label5 = new Label();
+            ((System.ComponentModel.ISupportInitialize)gridSeccion).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // gridSeccion
             // 
-            textBox1.Location = new Point(367, 203);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(209, 23);
-            textBox1.TabIndex = 35;
+            gridSeccion.AllowUserToDeleteRows = false;
+            gridSeccion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridSeccion.Columns.AddRange(new DataGridViewColumn[] { ID, Seccion });
+            gridSeccion.Location = new Point(367, 236);
+            gridSeccion.Name = "gridSeccion";
+            gridSeccion.ReadOnly = true;
+            gridSeccion.Size = new Size(242, 388);
+            gridSeccion.TabIndex = 31;
             // 
-            // dataGridView1
+            // ID
             // 
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Checkbox, IDMateria, Seccion, Cupo, Profesor, Edit });
-            dataGridView1.Location = new Point(367, 244);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(642, 388);
-            dataGridView1.TabIndex = 31;
+            ID.HeaderText = "ID Sección";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // Seccion
+            // 
+            Seccion.HeaderText = "Sección";
+            Seccion.Name = "Seccion";
+            Seccion.ReadOnly = true;
             // 
             // label1
             // 
@@ -81,90 +83,71 @@
             BtnDelete.BackgroundImageLayout = ImageLayout.Stretch;
             BtnDelete.FlatAppearance.BorderSize = 0;
             BtnDelete.FlatStyle = FlatStyle.Flat;
-            BtnDelete.Location = new Point(766, 150);
+            BtnDelete.Location = new Point(367, 145);
             BtnDelete.Name = "BtnDelete";
             BtnDelete.Size = new Size(123, 83);
             BtnDelete.TabIndex = 39;
             BtnDelete.UseVisualStyleBackColor = false;
             BtnDelete.Click += BtnDelete_Click;
             // 
-            // BtnAdd
+            // BtnBack
             // 
-            BtnAdd.BackColor = Color.FromArgb(30, 30, 60);
-            BtnAdd.BackgroundImage = Properties.Resources.BotonAdd;
-            BtnAdd.BackgroundImageLayout = ImageLayout.Stretch;
-            BtnAdd.FlatAppearance.BorderSize = 0;
-            BtnAdd.FlatStyle = FlatStyle.Flat;
-            BtnAdd.Location = new Point(895, 145);
-            BtnAdd.Name = "BtnAdd";
-            BtnAdd.Size = new Size(114, 93);
-            BtnAdd.TabIndex = 38;
-            BtnAdd.UseVisualStyleBackColor = false;
-            BtnAdd.Click += BtnAdd_Click;
+            BtnBack.BackColor = Color.FromArgb(30, 30, 60);
+            BtnBack.BackgroundImage = Properties.Resources.Boton_de_Retroceso;
+            BtnBack.BackgroundImageLayout = ImageLayout.Stretch;
+            BtnBack.FlatAppearance.BorderSize = 0;
+            BtnBack.FlatStyle = FlatStyle.Flat;
+            BtnBack.Location = new Point(12, 633);
+            BtnBack.Name = "BtnBack";
+            BtnBack.Size = new Size(104, 84);
+            BtnBack.TabIndex = 37;
+            BtnBack.UseVisualStyleBackColor = false;
+            BtnBack.Click += BtnRetroceso_Click;
             // 
-            // button1
+            // BtnSave
             // 
-            button1.BackColor = Color.FromArgb(30, 30, 60);
-            button1.BackgroundImage = Properties.Resources.Boton_de_Retroceso;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(12, 633);
-            button1.Name = "button1";
-            button1.Size = new Size(104, 84);
-            button1.TabIndex = 37;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += BtnRetroceso_Click;
+            BtnSave.BackColor = Color.FromArgb(30, 30, 60);
+            BtnSave.BackgroundImage = Properties.Resources.Boton_de_Guardado;
+            BtnSave.BackgroundImageLayout = ImageLayout.Stretch;
+            BtnSave.FlatAppearance.BorderSize = 0;
+            BtnSave.FlatStyle = FlatStyle.Flat;
+            BtnSave.Location = new Point(977, 602);
+            BtnSave.Name = "BtnSave";
+            BtnSave.Size = new Size(355, 115);
+            BtnSave.TabIndex = 36;
+            BtnSave.UseVisualStyleBackColor = false;
+            BtnSave.Click += BtnSave_Click;
             // 
-            // button2
+            // txtNombreSeccion
             // 
-            button2.BackColor = Color.FromArgb(30, 30, 60);
-            button2.BackgroundImage = Properties.Resources.Boton_de_Guardado;
-            button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(517, 638);
-            button2.Name = "button2";
-            button2.Size = new Size(355, 75);
-            button2.TabIndex = 36;
-            button2.UseVisualStyleBackColor = false;
+            txtNombreSeccion.Location = new Point(977, 427);
+            txtNombreSeccion.Name = "txtNombreSeccion";
+            txtNombreSeccion.Size = new Size(355, 23);
+            txtNombreSeccion.TabIndex = 51;
             // 
-            // Checkbox
+            // label3
             // 
-            Checkbox.HeaderText = "";
-            Checkbox.Name = "Checkbox";
-            Checkbox.ReadOnly = true;
+            label3.Anchor = AnchorStyles.Top;
+            label3.Font = new Font("Segoe UI", 35F);
+            label3.ForeColor = Color.FromArgb(170, 245, 219);
+            label3.Location = new Point(976, 355);
+            label3.Name = "label3";
+            label3.Size = new Size(357, 115);
+            label3.TabIndex = 50;
+            label3.Text = "Seccion:";
+            label3.TextAlign = ContentAlignment.TopCenter;
             // 
-            // IDMateria
+            // label5
             // 
-            IDMateria.HeaderText = "ID de Materia";
-            IDMateria.Name = "IDMateria";
-            IDMateria.ReadOnly = true;
-            // 
-            // Seccion
-            // 
-            Seccion.HeaderText = "Sección";
-            Seccion.Name = "Seccion";
-            Seccion.ReadOnly = true;
-            // 
-            // Cupo
-            // 
-            Cupo.HeaderText = "HC";
-            Cupo.Name = "Cupo";
-            Cupo.ReadOnly = true;
-            // 
-            // Profesor
-            // 
-            Profesor.HeaderText = "Profesor";
-            Profesor.Name = "Profesor";
-            Profesor.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            Edit.HeaderText = "Edit";
-            Edit.Image = Properties.Resources.BotonEditar;
-            Edit.Name = "Edit";
-            Edit.ReadOnly = true;
+            label5.Anchor = AnchorStyles.Top;
+            label5.Font = new Font("Segoe UI", 60F);
+            label5.ForeColor = Color.FromArgb(170, 245, 219);
+            label5.Location = new Point(1025, 170);
+            label5.Name = "label5";
+            label5.Size = new Size(258, 115);
+            label5.TabIndex = 49;
+            label5.Text = "Crear";
+            label5.TextAlign = ContentAlignment.TopCenter;
             // 
             // MantenimientoSeccionForm
             // 
@@ -172,34 +155,31 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 60);
             ClientSize = new Size(1344, 729);
+            Controls.Add(txtNombreSeccion);
+            Controls.Add(label3);
+            Controls.Add(label5);
             Controls.Add(BtnDelete);
-            Controls.Add(BtnAdd);
-            Controls.Add(button1);
-            Controls.Add(button2);
-            Controls.Add(textBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(BtnBack);
+            Controls.Add(BtnSave);
+            Controls.Add(gridSeccion);
             Controls.Add(label1);
             Name = "MantenimientoSeccionForm";
             Text = "MantenimientoSeccionForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridSeccion).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TextBox textBox1;
-        private DataGridView dataGridView1;
+        private DataGridView gridSeccion;
         private Label label1;
         private Button BtnDelete;
-        private Button BtnAdd;
-        private Button button1;
-        private Button button2;
-        private DataGridViewCheckBoxColumn Checkbox;
-        private DataGridViewTextBoxColumn IDMateria;
+        private Button BtnBack;
+        private Button BtnSave;
+        private TextBox txtNombreSeccion;
+        private Label label3;
+        private Label label5;
+        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Seccion;
-        private DataGridViewTextBoxColumn Cupo;
-        private DataGridViewTextBoxColumn Profesor;
-        private DataGridViewImageColumn Edit;
     }
 }

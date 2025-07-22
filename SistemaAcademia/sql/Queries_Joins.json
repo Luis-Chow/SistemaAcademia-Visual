@@ -591,6 +591,41 @@
     "select": [ "codigo", "nombre", "unidad_credito", "trimestre" ],
     "from": "materia",
     "where": [ "codigo = @codigo" ]
+  },
+
+  //Usado en: MantenimientoSeccionForm
+  "insertar_seccion": {
+    "insert_into": "seccion",
+    "columns": [ "nombre" ],
+    "values": [ "@nombre" ]
+  },
+
+  //Usado en: MantenimientoSeccionForm
+  "secciones_todas": {
+    "select": [ "id", "nombre" ],
+    "from": "seccion",
+    "order_by": [ "nombre" ]
+  },
+
+  //Usado en: MantenimientoSeccionForm
+  "borrar_seccion_por_id": {
+    "delete_from": "seccion",
+    "where": [ "id = @id" ]
+  },
+
+  //Usado en: MantenimientoSeccionForm
+  "seccion_existente_por_nombre": {
+    "select": [ "id" ],
+    "from": "seccion",
+    "where": [ "nombre = @nombre" ]
+  },
+
+  //Usado en: MantenimientoSeccionForm
+  "buscar_seccion_por_nombre": {
+    "select": [ "id", "nombre" ],
+    "from": "seccion",
+    "where_optional": [ "nombre ILIKE '%' || @nombre || '%'" ],
+    "order_by": [ "nombre" ]
   }
 
 }

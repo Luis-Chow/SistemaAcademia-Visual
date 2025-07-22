@@ -27,7 +27,6 @@ C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-win
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.MantenimientoForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.MantenimientoPersonaForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.CrearMateriaForm.resources
-C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.CrearSeccionForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.EditarMateriaForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.EditarSeccionForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.MantenimientoMateriaForm.resources
