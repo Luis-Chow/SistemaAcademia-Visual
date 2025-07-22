@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
+            SearchBox = new TextBox();
+            gridMaterias = new DataGridView();
             label1 = new Label();
-            button2 = new Button();
-            button1 = new Button();
+            BtnSave = new Button();
+            BtnBack = new Button();
             BtnDelete = new Button();
             BtnAdd = new Button();
-            Checkbox = new DataGridViewCheckBoxColumn();
             IDMateria = new DataGridViewTextBoxColumn();
             Materia = new DataGridViewTextBoxColumn();
             HC = new DataGridViewTextBoxColumn();
+            Trimestre = new DataGridViewTextBoxColumn();
             Edit = new DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridMaterias).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // SearchBox
             // 
-            textBox1.Location = new Point(405, 184);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(209, 23);
-            textBox1.TabIndex = 28;
+            SearchBox.Location = new Point(405, 184);
+            SearchBox.Name = "SearchBox";
+            SearchBox.Size = new Size(209, 23);
+            SearchBox.TabIndex = 28;
             // 
-            // dataGridView1
+            // gridMaterias
             // 
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Checkbox, IDMateria, Materia, HC, Edit });
-            dataGridView1.Location = new Point(405, 223);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(541, 399);
-            dataGridView1.TabIndex = 23;
+            gridMaterias.AllowUserToDeleteRows = false;
+            gridMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridMaterias.Columns.AddRange(new DataGridViewColumn[] { IDMateria, Materia, HC, Trimestre, Edit });
+            gridMaterias.Location = new Point(405, 223);
+            gridMaterias.Name = "gridMaterias";
+            gridMaterias.ReadOnly = true;
+            gridMaterias.Size = new Size(589, 399);
+            gridMaterias.TabIndex = 23;
             // 
             // label1
             // 
@@ -72,34 +72,33 @@
             label1.TabIndex = 21;
             label1.Text = "Mantenimiento de Materia";
             label1.TextAlign = ContentAlignment.TopCenter;
-            label1.Click += label1_Click;
             // 
-            // button2
+            // BtnSave
             // 
-            button2.BackColor = Color.FromArgb(30, 30, 60);
-            button2.BackgroundImage = Properties.Resources.Boton_de_Guardado;
-            button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(508, 642);
-            button2.Name = "button2";
-            button2.Size = new Size(355, 75);
-            button2.TabIndex = 29;
-            button2.UseVisualStyleBackColor = false;
+            BtnSave.BackColor = Color.FromArgb(30, 30, 60);
+            BtnSave.BackgroundImage = Properties.Resources.Boton_de_Guardado;
+            BtnSave.BackgroundImageLayout = ImageLayout.Stretch;
+            BtnSave.FlatAppearance.BorderSize = 0;
+            BtnSave.FlatStyle = FlatStyle.Flat;
+            BtnSave.Location = new Point(508, 642);
+            BtnSave.Name = "BtnSave";
+            BtnSave.Size = new Size(355, 75);
+            BtnSave.TabIndex = 29;
+            BtnSave.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // BtnBack
             // 
-            button1.BackColor = Color.FromArgb(30, 30, 60);
-            button1.BackgroundImage = Properties.Resources.Boton_de_Retroceso;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(12, 633);
-            button1.Name = "button1";
-            button1.Size = new Size(104, 84);
-            button1.TabIndex = 30;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += BtnRetroceso_Click;
+            BtnBack.BackColor = Color.FromArgb(30, 30, 60);
+            BtnBack.BackgroundImage = Properties.Resources.Boton_de_Retroceso;
+            BtnBack.BackgroundImageLayout = ImageLayout.Stretch;
+            BtnBack.FlatAppearance.BorderSize = 0;
+            BtnBack.FlatStyle = FlatStyle.Flat;
+            BtnBack.Location = new Point(12, 633);
+            BtnBack.Name = "BtnBack";
+            BtnBack.Size = new Size(104, 84);
+            BtnBack.TabIndex = 30;
+            BtnBack.UseVisualStyleBackColor = false;
+            BtnBack.Click += BtnRetroceso_Click;
             // 
             // BtnDelete
             // 
@@ -108,7 +107,7 @@
             BtnDelete.BackgroundImageLayout = ImageLayout.Stretch;
             BtnDelete.FlatAppearance.BorderSize = 0;
             BtnDelete.FlatStyle = FlatStyle.Flat;
-            BtnDelete.Location = new Point(691, 129);
+            BtnDelete.Location = new Point(740, 134);
             BtnDelete.Name = "BtnDelete";
             BtnDelete.Size = new Size(123, 83);
             BtnDelete.TabIndex = 32;
@@ -122,18 +121,12 @@
             BtnAdd.BackgroundImageLayout = ImageLayout.Stretch;
             BtnAdd.FlatAppearance.BorderSize = 0;
             BtnAdd.FlatStyle = FlatStyle.Flat;
-            BtnAdd.Location = new Point(832, 124);
+            BtnAdd.Location = new Point(881, 129);
             BtnAdd.Name = "BtnAdd";
             BtnAdd.Size = new Size(114, 93);
             BtnAdd.TabIndex = 31;
             BtnAdd.UseVisualStyleBackColor = false;
             BtnAdd.Click += BtnAdd_Click;
-            // 
-            // Checkbox
-            // 
-            Checkbox.HeaderText = "";
-            Checkbox.Name = "Checkbox";
-            Checkbox.ReadOnly = true;
             // 
             // IDMateria
             // 
@@ -153,6 +146,12 @@
             HC.Name = "HC";
             HC.ReadOnly = true;
             // 
+            // Trimestre
+            // 
+            Trimestre.HeaderText = "Trimestre";
+            Trimestre.Name = "Trimestre";
+            Trimestre.ReadOnly = true;
+            // 
             // Edit
             // 
             Edit.HeaderText = "Edit";
@@ -168,31 +167,31 @@
             ClientSize = new Size(1344, 729);
             Controls.Add(BtnDelete);
             Controls.Add(BtnAdd);
-            Controls.Add(button1);
-            Controls.Add(button2);
-            Controls.Add(textBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(BtnBack);
+            Controls.Add(BtnSave);
+            Controls.Add(SearchBox);
+            Controls.Add(gridMaterias);
             Controls.Add(label1);
             Name = "MantenimientoMateriaForm";
             Text = "MantenimientoMateriaForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridMaterias).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private DataGridView dataGridView1;
+        private TextBox SearchBox;
+        private DataGridView gridMaterias;
         private Label label1;
-        private Button button2;
-        private Button button1;
+        private Button BtnSave;
+        private Button BtnBack;
         private Button BtnDelete;
         private Button BtnAdd;
-        private DataGridViewCheckBoxColumn Checkbox;
         private DataGridViewTextBoxColumn IDMateria;
         private DataGridViewTextBoxColumn Materia;
         private DataGridViewTextBoxColumn HC;
+        private DataGridViewTextBoxColumn Trimestre;
         private DataGridViewImageColumn Edit;
     }
 }

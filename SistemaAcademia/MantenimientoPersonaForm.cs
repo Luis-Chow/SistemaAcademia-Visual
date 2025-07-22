@@ -1,14 +1,5 @@
-﻿using Newtonsoft.Json;
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Npgsql;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SistemaAcademia
 {   
@@ -39,7 +30,6 @@ namespace SistemaAcademia
             dataGridPersona.CellClick += dataGridPersona_CellClick;
             SearchBox.Click += SearchBox_Click;
             SearchBox.KeyDown += SearchBox_KeyDown;
-            AddCheckColumn();
         }
 
         private void LoadPeopleInGrid()
@@ -202,25 +192,6 @@ namespace SistemaAcademia
             return ids;
         }
 
-        private void AddCheckColumn()
-        {
-            if (!dataGridPersona.Columns.Contains("Seleccionar"))
-            {
-                var colCheck = new DataGridViewCheckBoxColumn
-                {
-                    Name = "Seleccionar",
-                    HeaderText = "✔",
-                    Width = 40,
-                    ReadOnly = false,
-                    TrueValue = true,
-                    FalseValue = false
-                };
-
-                dataGridPersona.Columns.Insert(0, colCheck);
-            }
-        }
-
-
         private void SearchByCI(string cedula)
         {
             if (string.IsNullOrWhiteSpace(cedula))
@@ -239,7 +210,6 @@ namespace SistemaAcademia
 
             ShowFilteredResults(resultado);
         }
-
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -247,7 +217,6 @@ namespace SistemaAcademia
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             var seleccionados = GetCheckedIDs();
-
             if (seleccionados.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar al menos una persona para borrar.");
@@ -258,8 +227,13 @@ namespace SistemaAcademia
                 $"¿Seguro que desea borrar {seleccionados.Count} persona(s)?",
                 "Confirmar borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (r == DialogResult.Yes)
+            if (r != DialogResult.Yes)
+                return;
+
+            try
             {
+                db.BeginTransaction();
+
                 foreach (int id in seleccionados)
                 {
                     var parametros = new[] { new NpgsqlParameter("@id", id) };
@@ -267,11 +241,16 @@ namespace SistemaAcademia
                     db.ExecuteNonQuery(sql, parametros);
                 }
 
+                db.Commit();
                 MessageBox.Show("Personas borradas correctamente.");
                 LoadPeopleInGrid();
             }
+            catch (Exception ex)
+            {
+                db.Rollback();
+                MessageBox.Show("Error al borrar personas: " + ex.Message);
+            }
         }
-
 
         private void BtnFilter_Click(object sender, EventArgs e)
         {
@@ -288,11 +267,6 @@ namespace SistemaAcademia
             {
                 crearForm.ShowDialog();
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -55,7 +55,6 @@
             label1.TabIndex = 13;
             label1.Text = "Mantenimiento de Persona";
             label1.TextAlign = ContentAlignment.TopCenter;
-            label1.Click += label1_Click;
             // 
             // dataGridPersona
             // 

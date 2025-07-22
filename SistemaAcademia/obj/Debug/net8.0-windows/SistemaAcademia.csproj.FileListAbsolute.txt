@@ -26,15 +26,12 @@ C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-win
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.InscripcionesForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.MantenimientoForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.MantenimientoPersonaForm.resources
-C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.BorrarMateriaForm.resources
-C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.BorrarSeccionForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.CrearMateriaForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.CrearSeccionForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.EditarMateriaForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.EditarSeccionForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.MantenimientoMateriaForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.MantenimientoSeccionForm.resources
-C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.BorrarCursoForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.CrearCursoForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.EditarCursoForm.resources
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.MantenimientoCursoForm.resources
@@ -48,3 +45,4 @@ C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\bin\Debug\net8.0-win
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\bin\Debug\net8.0-windows\sql\Rutas.json
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\bin\Debug\net8.0-windows\sql\Queries_Joins.json
 C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.CrearNotaForm.resources
+C:\Users\thech\source\repos\SistemaAcademia\SistemaAcademia\obj\Debug\net8.0-windows\SistemaAcademia.sourcelink.json

@@ -24,10 +24,6 @@ namespace SistemaAcademia
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            using (var borrarForm = new BorrarSeccionForm())
-            {
-                borrarForm.ShowDialog();
-            }
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)

@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SistemaAcademia
+﻿namespace SistemaAcademia
 {
     public partial class MantenimientoForm : Form
     {
@@ -38,7 +28,7 @@ namespace SistemaAcademia
         private void BtnMateria_Click(object sender, EventArgs e)
         {
             this.Hide();
-            using (MantenimientoMateriaForm materiaForm = new MantenimientoMateriaForm())
+            using (MantenimientoMateriaForm materiaForm = new MantenimientoMateriaForm(db, loader))
             {
                 materiaForm.ShowDialog();
             }

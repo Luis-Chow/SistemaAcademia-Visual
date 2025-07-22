@@ -533,5 +533,64 @@
       "id_tipo_persona = @tipo"
     ],
     "where": [ "id = @id" ]
+  },
+
+  //Usado en: MantenimientoMateriaForm
+  "insertar_materia": {
+    "insert_into": "materia",
+    "columns": [
+      "codigo",
+      "nombre",
+      "unidad_credito",
+      "trimestre"
+    ],
+    "values": [
+      "@codigo",
+      "@nombre",
+      "@unidad_credito",
+      "@trimestre"
+    ]
+  },
+
+  //Usado en: MantenimientoMateriaForm
+  "update_materia": {
+    "update_set": "materia",
+    "set": [
+      "nombre = @nombre",
+      "unidad_credito = @unidad_credito",
+      "trimestre = @trimestre"
+    ],
+    "where": [ "codigo = @codigo" ]
+  },
+
+  //Usado en: MantenimientoMateriaForm
+  "borrar_materia_por_codigo": {
+    "delete_from": "materia",
+    "where": [ "codigo = @codigo" ]
+  },
+
+  //Usado en: MantenimientoMateriaForm
+  "buscar_materia_por_codigo": {
+    "select": [ "codigo", "nombre", "unidad_credito", "trimestre" ],
+    "from": "materia",
+    "where_optional": [
+      "codigo ILIKE '%' || @codigo || '%'"
+    ],
+    "order_by": [ "codigo" ]
+  },
+
+  //Usado en: MantenimientoMateriaForm
+  "materias_todas": {
+    "select": [ "codigo", "nombre", "unidad_credito", "trimestre" ],
+    "from": "materia",
+    "order_by": [ "codigo" ]
+  },
+
+  //Usado en: MantenimientoMateriaForm
+  "materia_por_codigo": {
+    "select": [ "codigo", "nombre", "unidad_credito", "trimestre" ],
+    "from": "materia",
+    "where": [ "codigo = @codigo" ]
   }
+
 }
