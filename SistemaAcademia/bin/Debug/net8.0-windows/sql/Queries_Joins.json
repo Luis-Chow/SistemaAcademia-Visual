@@ -17,15 +17,15 @@
       "MAX(CASE WHEN c.numero = 6 THEN c.nota END) AS n6",
       "MAX(CASE WHEN c.numero = 7 THEN c.nota END) AS n7"
     ],
-    "from": "calificacion c",
+    "from": "inscripcion i",
     "joins": [
       {
         "table": "persona p",
-        "on": "c.id_persona = p.id"
+        "on": "i.id_persona = p.id"
       },
       {
         "table": "curso cu",
-        "on": "c.id_curso = cu.id"
+        "on": "i.id_curso = cu.id"
       },
       {
         "table": "materia m",
@@ -34,6 +34,11 @@
       {
         "table": "seccion s",
         "on": "cu.id_seccion = s.id"
+      },
+      {
+        "table": "calificacion c",
+        "on": "c.id_curso = cu.id AND c.id_persona = p.id",
+        "type": "left"
       }
     ],
     "where": [
@@ -93,7 +98,7 @@
     ]
   },
 
-  // Usado en: ComboBox de NotasForm
+  // Usado en: ComboBox de NotasForm y CrearCursoForm
   "combo_materias": {
     "select": [ "id", "nombre" ],
     "from": "materia",
@@ -276,22 +281,31 @@
       "h.hora_inicio",
       "h.hora_fin",
       "h.aula",
-      "m.nombre AS materia"
+      "m.nombre AS materia",
+      "s.nombre AS seccion"
     ],
-    "from": "horario h",
+    "from": "curso c",
     "joins": [
-      {
-        "table": "curso c",
-        "on": "h.id_curso = c.id"
-      },
       {
         "table": "materia m",
         "on": "c.id_materia = m.id"
+      },
+      {
+        "table": "seccion s",
+        "on": "c.id_seccion = s.id"
+      },
+      {
+        "table": "horario_curso hc",
+        "on": "hc.curso_id = c.id"
+      },
+      {
+        "table": "horario h",
+        "on": "hc.horario_id = h.id"
       }
     ],
-    "where": [ "h.id_curso = @curso" ]
+    "where": [ "c.id = @curso" ],
+    "order_by": [ "h.dia", "h.hora_inicio" ]
   },
-
 
   // Usado en: InscripcionesForm
   "horario_actual_del_estudiante": {
@@ -301,31 +315,30 @@
       "h.hora_inicio",
       "h.hora_fin",
       "h.aula",
-      "h.id_curso",
+      "hc.curso_id",
       "m.codigo AS codigo_materia"
     ],
     "from": "inscripcion i",
     "joins": [
       {
-        "table": "horario h",
-        "on": "h.id_curso = i.id_curso"
+        "table": "curso c",
+        "on": "c.id = i.id_curso"
       },
       {
-        "table": "curso c",
-        "on": "c.id = h.id_curso"
+        "table": "horario_curso hc",
+        "on": "hc.curso_id = c.id"
+      },
+      {
+        "table": "horario h",
+        "on": "hc.horario_id = h.id"
       },
       {
         "table": "materia m",
         "on": "m.id = c.id_materia"
       }
     ],
-    "where": [
-      "i.id_persona = @persona"
-    ],
-    "order_by": [
-      "h.dia",
-      "h.hora_inicio"
-    ]
+    "where": [ "i.id_persona = @persona" ],
+    "order_by": [ "h.dia", "h.hora_inicio" ]
   },
 
   //Usado en: InscripcionesForm
@@ -626,6 +639,267 @@
     "from": "seccion",
     "where_optional": [ "nombre ILIKE '%' || @nombre || '%'" ],
     "order_by": [ "nombre" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "curso_por_materia": {
+    "select": [
+      "c.id",
+      "m.codigo AS codigo_materia",
+      "m.nombre AS materia",
+      "s.nombre AS seccion",
+      "p.nombre || ' ' || p.apellido AS profesor",
+      "c.periodo_academico AS periodo",
+      "STRING_AGG(h.dia || ' ' || TO_CHAR(h.hora_inicio, 'HH24:MI') || '-' || TO_CHAR(h.hora_fin, 'HH24:MI'), ', ') AS horario",
+      "STRING_AGG(DISTINCT h.aula, ', ') AS aula"
+    ],
+    "from": "curso c",
+    "joins": [
+      {
+        "table": "materia m",
+        "on": "c.id_materia = m.id"
+      },
+      {
+        "table": "seccion s",
+        "on": "c.id_seccion = s.id"
+      },
+      {
+        "table": "persona p",
+        "on": "c.id_docente = p.id"
+      },
+      {
+        "table": "horario_curso hc",
+        "on": "hc.curso_id = c.id"
+      },
+      {
+        "table": "horario h",
+        "on": "hc.horario_id = h.id"
+      }
+    ],
+    "where_optional": [ "m.nombre ILIKE '%' || @materia || '%'" ],
+    "group_by": [
+      "c.id",
+      "m.codigo",
+      "m.nombre",
+      "s.nombre",
+      "p.nombre || ' ' || p.apellido",
+      "c.periodo_academico"
+    ],
+    "order_by": [ "m.nombre", "s.nombre" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "cursos_todos": {
+    "select": [
+      "c.id",
+      "m.codigo AS codigo_materia",
+      "m.nombre AS materia",
+      "s.nombre AS seccion",
+      "p.nombre || ' ' || p.apellido AS profesor",
+      "c.periodo_academico AS periodo",
+      "c.cupo AS cupo",
+      "STRING_AGG(h.dia || ' ' || TO_CHAR(h.hora_inicio, 'HH24:MI') || '-' || TO_CHAR(h.hora_fin, 'HH24:MI'), ', ') AS horario",
+      "STRING_AGG(DISTINCT h.aula, ', ') AS aula"
+    ],
+    "from": "curso c",
+    "joins": [
+      {
+        "table": "materia m",
+        "on": "c.id_materia = m.id"
+      },
+      {
+        "table": "seccion s",
+        "on": "c.id_seccion = s.id"
+      },
+      {
+        "table": "persona p",
+        "on": "c.id_docente = p.id"
+      },
+      {
+        "table": "horario_curso hc",
+        "on": "hc.curso_id = c.id"
+      },
+      {
+        "table": "horario h",
+        "on": "hc.horario_id = h.id"
+      }
+    ],
+    "group_by": [
+      "c.id",
+      "m.codigo",
+      "m.nombre",
+      "s.nombre",
+      "p.nombre || ' ' || p.apellido",
+      "c.periodo_academico"
+    ],
+    "order_by": [ "m.nombre", "s.nombre" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "horarios_libres": {
+    "select": [
+      "h.id",
+      "h.dia || ' ' || TO_CHAR(h.hora_inicio, 'HH24:MI') || '-' || TO_CHAR(h.hora_fin, 'HH24:MI') || ' (' || h.aula || ')' AS descripcion"
+    ],
+    "from": "horario h",
+    "joins": [
+      {
+        "table": "horario_curso hc",
+        "type": "LEFT",
+        "on": "h.id = hc.horario_id"
+      }
+    ],
+    "where": [
+      "hc.curso_id IS NULL"
+    ],
+    "order_by": [ "h.dia", "h.hora_inicio" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "insertar_curso": {
+    "insert_into": "curso",
+    "columns": [
+      "id_materia",
+      "id_seccion",
+      "id_docente",
+      "periodo_academico",
+      "cupo"
+    ],
+    "values": [
+      "@materia",
+      "@seccion",
+      "@docente",
+      "@periodo",
+      "@cupo"
+    ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "insertar_horario_curso": {
+    "insert_into": "horario_curso",
+    "columns": [ "curso_id", "horario_id" ],
+    "values": [ "@curso", "@horario" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "docentes_disponibles": {
+    "select": [
+      "p.id",
+      "p.nombre || ' ' || p.apellido AS nombre_completo"
+    ],
+    "from": "persona p",
+    "joins": [
+      {
+        "table": "tipo_persona tp",
+        "on": "p.id_tipo_persona = tp.id"
+      }
+    ],
+    "where": [ "tp.descripcion = 'Profesor'" ],
+    "order_by": [ "p.nombre", "p.apellido" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "secciones_disponibles_por_nombre": {
+    "select": [ "DISTINCT s.id", "s.nombre" ],
+    "from": "materia m",
+    "joins": [
+      {
+        "table": "seccion s",
+        "on": "TRUE"
+      },
+      {
+        "table": "curso c",
+        "type": "LEFT",
+        "on": "c.id_seccion = s.id AND c.id_materia = m.id"
+      }
+    ],
+    "where": [
+      "m.nombre = @nombre",
+      "c.id IS NULL"
+    ],
+    "order_by": [ "s.nombre" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "borrar_curso_por_id": {
+    "delete_from": "curso",
+    "where": [ "id = @id" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "curso_por_id": {
+    "select": [
+      "cu.id",
+      "cu.id_seccion",
+      "cu.id_docente",
+      "cu.periodo_academico",
+      "cu.cupo",
+      "ARRAY_AGG(h.dia ORDER BY h.dia) AS dias"
+    ],
+    "from": "curso cu",
+    "joins": [
+      {
+        "table": "horario_curso hc",
+        "on": "cu.id = hc.curso_id",
+        "type": "left"
+      },
+      {
+        "table": "horario h",
+        "on": "hc.horario_id = h.id",
+        "type": "left"
+      }
+    ],
+    "where": [ "cu.id = @id" ],
+    "group_by": [
+      "cu.id",
+      "cu.id_seccion",
+      "cu.id_docente",
+      "cu.periodo_academico",
+      "cu.cupo"
+    ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "dias_por_curso": {
+    "select": [
+      "h.id",
+      "h.dia || ' - ' || h.hora_inicio || ' a ' || h.hora_fin || ' - Aula ' || h.aula AS descripcion"
+    ],
+    "from": "horario_curso hc",
+    "joins": [
+      {
+        "table": "horario h",
+        "on": "hc.horario_id = h.id"
+      }
+    ],
+    "where": [ "hc.curso_id = @id" ],
+    "order_by": [ "h.dia", "h.hora_inicio" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "eliminar_horarios_por_curso": {
+    "delete_from": "horario_curso",
+    "where": [ "curso_id = @id" ]
+  },
+
+  //Usado en: MantenimientoCursoForm
+  "insertar_horario_simple": {
+    "insert_into": "horario_curso",
+    "columns": [ "curso_id", "horario_id" ],
+    "values": [ "@curso_id", "(SELECT id FROM horario WHERE dia = @dia LIMIT 1)" ]
+  },
+
+
+  //Usado en: MantenimientoCursoForm
+  "update_curso": {
+    "update_set": "curso",
+    "set": [
+      "id_seccion = @id_seccion",
+      "id_docente = @id_docente",
+      "periodo_academico = @periodo",
+      "cupo = @cupo"
+    ],
+    "where": [ "id = @id" ]
   }
 
 }

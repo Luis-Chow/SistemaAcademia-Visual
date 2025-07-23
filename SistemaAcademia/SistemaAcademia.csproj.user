@@ -1,72 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="CrearNotaForm.cs">
+    <Compile Update="Forms\CrearNotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CrearCursoForm.cs">
+    <Compile Update="Forms\CrearCursoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CrearMateriaForm.cs">
+    <Compile Update="Forms\CrearMateriaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CrearPersonaForm.cs">
+    <Compile Update="Forms\CrearPersonaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EditarCursoForm.cs">
+    <Compile Update="Forms\EditarCursoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EditarMateriaForm.cs">
+    <Compile Update="Forms\EditarMateriaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EditarNotasForm.cs">
+    <Compile Update="Forms\EditarNotasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EditarPersonaForm.cs">
+    <Compile Update="Forms\EditarPersonaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EditarSeccionForm.cs">
+    <Compile Update="Forms\FiltroPersonaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FiltroPersonaForm.cs">
+    <Compile Update="Forms\InscripcionesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="InscripcionesForm.cs">
+    <Compile Update="Forms\MantenimientoCursoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MantenimientoCursoForm.cs">
+    <Compile Update="Forms\MantenimientoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MantenimientoForm.cs">
+    <Compile Update="Forms\MantenimientoMateriaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MantenimientoMateriaForm.cs">
+    <Compile Update="Forms\MantenimientoPersonaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MantenimientoPersonaForm.cs">
+    <Compile Update="Forms\MantenimientoSeccionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MantenimientoSeccionForm.cs">
+    <Compile Update="Forms\MenuPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MenuPrincipalForm.cs">
+    <Compile Update="Forms\NotasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="NotasForm.cs">
+    <Compile Update="Forms\PlanillaEvaluacionesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PlanillaEvaluacionesForm.cs">
+    <Compile Update="Forms\PlanillaNotasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PlanillaNotasForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="ReportesForm.cs">
+    <Compile Update="Forms\ReportesForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="NotasForm.resx">
+    <EmbeddedResource Update="Forms\NotasForm.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
